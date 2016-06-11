@@ -121,6 +121,16 @@ webpackConfig.module.loaders.push({
   ]
 })
 
+webpackConfig.module.loaders.push(
+  { test: /\.woff(\?.*)?$/,  loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
+  { test: /\.woff2(\?.*)?$/, loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff2' },
+  { test: /\.otf(\?.*)?$/,   loader: 'file?name=fonts/[name].[ext]&limit=10000&mimetype=font/opentype' },
+  { test: /\.ttf(\?.*)?$/,   loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/octet-stream' },
+  { test: /\.eot(\?.*)?$/,   loader: 'file?name=fonts/[name].[ext]' },
+  { test: /\.svg(\?.*)?$/,   loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=image/svg+xml' },
+  { test: /\.(png|jpg)$/,    loader: 'url?name=img/[name].[ext]&limit=8192' }
+)
+
 webpackConfig.module.loaders.push({
   test: /\.css$/,
   loaders: [
